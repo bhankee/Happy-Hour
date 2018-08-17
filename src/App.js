@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
-import { database } from './database/connection';
+import { auth, database } from './database/connection';
 import './App.css';
+import SignIn from './components/SignIn';
+import Profile from './components/Profile';
+import AddHappyPlace from './components/AddHappyPlace';
+import HappyList from './components/HappyList';
 
 class App extends Component {
   state = {
-    data: ''
+    currentUser: null,
+    pubs: {}
   };
 
   componentDidMount() {
-    console.log('COMPONENT DID MOUNT FIRED!');
+    const pubRef = database.ref('/pubs');
+    // Check if user logged in or out
+    auth.onAuthStateChanged(currentUser => {
+      console.log('USER: ', currentUser);
+      this.setState({ currentUser });
 
-    database.ref().on('value', snapshot => {
-      this.setState({
-        data: 'snpshota'
+      pubRef.on('value', snapshot => {
+        console.log('SNAPSHOT: ', snapshot.val());
+        this.setState({ pubs: snapshot.val() });
       });
     });
   }
   render() {
+    const { currentUser, pubs } = this.state;
+
     return (
       <div className="App">
         <h1>Happy Hour</h1>
-        <h3>{this.state.data}</h3>
+        {!currentUser && <SignIn />}
+        {currentUser && (
+          <div>
+            <AddHappyPlace />
+            <Profile user={currentUser} />
+            <HappyList pubs={pubs} currentUser={currentUser} />
+          </div>
+        )}
       </div>
     );
   }

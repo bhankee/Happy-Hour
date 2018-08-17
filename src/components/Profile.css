@@ -1,0 +1,9 @@
+.profileContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userIntro {
+  flex: 1;
+  padding: 1em;
+}
