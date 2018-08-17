@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { database } from './database/connection';
 import './App.css';
 
 class App extends Component {
+  state = {
+    data: ''
+  };
+
+  componentDidMount() {
+    console.log('COMPONENT DID MOUNT FIRED!');
+
+    database.ref().on('value', snapshot => {
+      this.setState({
+        data: 'snpshota'
+      });
+    });
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Happy Hour</h1>
+        <h3>{this.state.data}</h3>
       </div>
     );
   }
