@@ -36,7 +36,7 @@ class App extends Component {
           <div>
             <AddHappyPlace />
             <Profile user={currentUser} />
-            <HappyList pubs={pubs} currentUser={currentUser} />
+            <HappyList pubs={pubs} user={currentUser} />
           </div>
         )}
       </div>
