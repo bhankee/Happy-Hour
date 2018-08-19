@@ -1,9 +1,29 @@
 .profileContainer {
   display: flex;
   justify-content: space-between;
+  margin: 50px auto;
+}
+
+.profileImg {
+  width: 200px;
+  height: auto;
+  border-radius: 50px;
+  margin-right: 150px;
 }
 
 .userIntro {
-  flex: 1;
+  flex-grow: 400;
   padding: 1em;
+}
+ul {
+  margin: 0 25px;
+  padding: 0;
+  text-align: center;
+}
+li {
+  list-style-type: none;
+  padding: 5px;
+  background-image: linear-gradient(to right, #0d2e5a, #537895);
+  border-radius: 50px;
+  color: white;
 }

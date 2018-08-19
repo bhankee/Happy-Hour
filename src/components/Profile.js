@@ -8,8 +8,12 @@ class Profile extends Component {
   render() {
     const { user } = this.props;
     return (
-      <div className="proileContainer">
-        <img src={user.photoURL} alt={user.displayName} />
+      <div className="profileContainer">
+        <img
+          className="profileImg"
+          src={user.photoURL}
+          alt={user.displayName}
+        />
 
         <div className="userIntro">
           <h1>Welcome {this.props.user.displayName}</h1>

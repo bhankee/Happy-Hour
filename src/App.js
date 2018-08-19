@@ -5,6 +5,8 @@ import SignIn from './components/SignIn';
 import Profile from './components/Profile';
 import AddHappyPlace from './components/AddHappyPlace';
 import HappyList from './components/HappyList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBeer } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   state = {
@@ -30,11 +32,18 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Happy Hour</h1>
+        <div className="header">
+          <h1 className="title">Happy Hour</h1>
+          <span className="awesome">
+            <FontAwesomeIcon icon={faBeer} />
+          </span>
+        </div>
+
         {!currentUser && <SignIn />}
         {currentUser && (
           <div>
             <AddHappyPlace />
+            <hr />
             <Profile user={currentUser} />
             <HappyList pubs={pubs} user={currentUser} />
           </div>

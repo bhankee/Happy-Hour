@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-//import './HappyPlace.css';
+import './AddHappyPlace.css';
 
-import { auth, database } from '../database/connection';
+import { database } from '../database/connection';
 
 class AddHappyPlace extends Component {
   state = { placeName: '' };
@@ -16,15 +16,18 @@ class AddHappyPlace extends Component {
   render() {
     const { placeName } = this.state;
     return (
-      <div>
-        <input
-          type="text"
-          value={placeName}
-          onChange={event => this.setState({ placeName: event.target.value })}
-        />
-        <button onClick={this.handleClick}>Add Awesome Place</button>
-        <div />
-      </div>
+      <form>
+        <div className="addHappy">
+          <input
+            type="text"
+            value={placeName}
+            placeholder="Add New Pub"
+            onChange={event => this.setState({ placeName: event.target.value })}
+          />
+          <button onClick={this.handleClick}>Add Awesome Place</button>
+          <div />
+        </div>
+      </form>
     );
   }
 }

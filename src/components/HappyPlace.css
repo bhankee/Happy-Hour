@@ -1,0 +1,23 @@
+.happyContainer {
+  min-width: 500px;
+  text-align: center;
+  height: 150px;
+  padding: 10px;
+  background-image: linear-gradient(#66a6ff 60%, #89f7fe);
+  border-radius: 20px;
+  margin: 20px;
+  font-size: 2em;
+  color: white;
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.6);
+}
+
+.happyContainer li {
+  list-style: none;
+  background-color: orange;
+  width: 20%;
+  text-align: center;
+}
+.happyPlace {
+  flex-grow: 1;
+  margin: 20px auto;
+}
