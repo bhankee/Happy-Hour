@@ -31,7 +31,7 @@ class App extends Component {
     const { currentUser, pubs } = this.state;
 
     return (
-      <div className="App">
+      <div className={currentUser ? 'App' : 'loginScreen'}>
         <div className="header">
           <h1 className="title">Happy Hour</h1>
           <span className="awesome">

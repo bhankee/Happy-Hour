@@ -1,13 +1,14 @@
 body {
   /*background-color: #f0f0f0;*/
   background-image: linear-gradient(#09203f, #537895);
+  height: 100vh;
 }
 
 .App {
   width: 75%;
   padding: 50px;
   margin: 150px auto;
-  background-color: white;
+  background-color: #f2f2f2;
 }
 .header {
   margin: 10px auto;
@@ -16,9 +17,9 @@ body {
 }
 .title {
   padding: 5px;
+  margin-right: 10px;
   font-size: 4em;
   color: rgba(34, 142, 250, 0.5);
-  border: 2px solid rgb(235, 235, 235);
 }
 .awesome {
   margin: auto 0;
@@ -61,4 +62,10 @@ hr {
   height: 10px;
   border: 0;
   box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.loginScreen {
+  width: 75%;
+  padding: 50px;
+  margin: 150px auto;
 }
