@@ -4,6 +4,9 @@ import HappyPlace from './HappyPlace';
 import './HappyList.css';
 
 class HappyList extends Component {
+  state = {
+    winner: ''
+  };
   handleSelect = key => {
     const user = this.props.user;
     database
@@ -13,6 +16,7 @@ class HappyList extends Component {
       .child(user.uid)
       .set(user.displayName);
   };
+
   handleDeSelect = key => {
     const user = this.props.user;
     database

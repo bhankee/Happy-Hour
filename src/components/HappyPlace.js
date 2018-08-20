@@ -4,6 +4,7 @@ import './HappyPlace.css';
 const HappyPlace = ({ name, votes, user, handleSelect, handleDeSelect }) => {
   const userHasSelected = votes && Object.keys(votes).includes(user.uid);
   console.log('USER!!: ', user);
+
   return (
     <div>
       <div className="happyContainer">
@@ -19,6 +20,7 @@ const HappyPlace = ({ name, votes, user, handleSelect, handleDeSelect }) => {
           {votes &&
             Object.keys(votes).map(key => {
               const vote = votes[key];
+
               return <li key={key}>{vote}</li>;
             })}
         </ul>
