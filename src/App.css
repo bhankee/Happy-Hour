@@ -1,7 +1,7 @@
 body {
   /*background-color: #f0f0f0;*/
   background-image: linear-gradient(#09203f, #537895);
-  height: 100vh;
+  height: 100%;
 }
 
 .App {
@@ -11,7 +11,7 @@ body {
   background-color: #f2f2f2;
 }
 .header {
-  margin: 10px auto;
+  margin: 60px auto 20px auto;
   display: flex;
   justify-content: center;
 }
@@ -19,7 +19,8 @@ body {
   padding: 5px;
   margin-right: 10px;
   font-size: 4em;
-  color: rgba(34, 142, 250, 0.5);
+  color: rgba(34, 142, 250, 0.7);
+  text-shadow: 1px 1px 1px #191919;
 }
 .awesome {
   margin: auto 0;
@@ -45,9 +46,11 @@ button {
   border-radius: 12px;
   background-color: #ff4567;
   font-size: 0.7em;
+  text-shadow: 1px 1px rgb(112, 112, 112);
   color: white;
   padding: 10px;
   box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.6);
+  margin: 5px auto;
 
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;

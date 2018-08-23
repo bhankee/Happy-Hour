@@ -9,7 +9,7 @@ class AddHappyPlace extends Component {
   handleClick = event => {
     event.preventDefault();
     const placeRef = database.ref('/pubs');
-    console.log('state: ', this.state.placeName);
+
     placeRef.push({ name: this.state.placeName });
   };
 
@@ -24,7 +24,7 @@ class AddHappyPlace extends Component {
             placeholder="Add New Pub"
             onChange={event => this.setState({ placeName: event.target.value })}
           />
-          <button onClick={this.handleClick}>Add Awesome Place</button>
+          <button onClick={this.handleClick}>Add Happy Place </button>
           <div />
         </div>
       </form>

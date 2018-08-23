@@ -5,8 +5,7 @@ import SignIn from './components/SignIn';
 import Profile from './components/Profile';
 import AddHappyPlace from './components/AddHappyPlace';
 import HappyList from './components/HappyList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBeer } from '@fortawesome/free-solid-svg-icons';
+import Header from './components/Header';
 
 class App extends Component {
   state = {
@@ -18,11 +17,8 @@ class App extends Component {
     const pubRef = database.ref('/pubs');
     // Check if user logged in or out
     auth.onAuthStateChanged(currentUser => {
-      console.log('USER: ', currentUser);
       this.setState({ currentUser });
-
       pubRef.on('value', snapshot => {
-        console.log('SNAPSHOT: ', snapshot.val());
         this.setState({ pubs: snapshot.val() });
       });
     });
@@ -31,23 +27,19 @@ class App extends Component {
     const { currentUser, pubs } = this.state;
 
     return (
-      <div className={currentUser ? 'App' : 'loginScreen'}>
-        <div className="header">
-          <h1 className="title">Happy Hour</h1>
-          <span className="awesome">
-            <FontAwesomeIcon icon={faBeer} />
-          </span>
+      <div>
+        <Header />
+        <div className={currentUser ? 'App' : 'loginScreen'}>
+          {!currentUser && <SignIn />}
+          {currentUser && (
+            <div>
+              <Profile user={currentUser} />
+              <hr />
+              <AddHappyPlace />
+              <HappyList pubs={pubs} user={currentUser} />
+            </div>
+          )}
         </div>
-
-        {!currentUser && <SignIn />}
-        {currentUser && (
-          <div>
-            <AddHappyPlace />
-            <hr />
-            <Profile user={currentUser} />
-            <HappyList pubs={pubs} user={currentUser} />
-          </div>
-        )}
       </div>
     );
   }

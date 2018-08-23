@@ -1,0 +1,8 @@
+
+ // These rules don't allow anyone read or write access to your database
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
